@@ -1,0 +1,14 @@
+{
+  "name": "back-node-redis",
+  "private": true,
+  "version": "0.0.1",
+  "description": "REST server for REDIS",
+  "author": "L4ngu0r",
+  "dependencies": {
+    "redis": "^2.6.2",
+    "express" : "^4.14.0",
+    "body-parser" : "^1.15.2",
+    "bluebird":"^3.4.3"
+  },
+  "license": "MIT"
+}
