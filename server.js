@@ -24,7 +24,7 @@ app.use((req, res, next) => {
  **********************/
 
 
-const client = redis.createClient('6379', '192.168.1.13');
+const client = redis.createClient('6379', '172.17.0.1');
 
 function rk() {
     return Array.prototype.slice.call(arguments).join(':');
@@ -155,8 +155,16 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     console.log('put');
-    const id = req.params.id;
-    console.log("id : " + id);
+    let updateItem = req.body;
+    const hashKey = rk('todo',updateItem.name);
+    client.hmset(hashKey, updateItem, (err,reply) => {
+        if(err){
+            throw err;
+        }
+        console.log(reply);
+        res.status(200);
+        res.json(updateItem);
+    });
 });
 
 app.use('/todo', router);
