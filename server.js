@@ -1,6 +1,7 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
     redis = require('redis'),
+    dotenv = require('dotenv'),
     app = express(),
     router = express.Router();
 
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
  **********************/
 
 
-const client = redis.createClient('6379', '172.17.0.1');
+const client = redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOST);
 
 function rk() {
     return Array.prototype.slice.call(arguments).join(':');
@@ -66,7 +67,7 @@ router.get('/', (req, res) => {
         console.log("On Complete");
         res.setHeader('Content-Type', 'application/json');
         res.status(200);
-        res.json(results);
+        res.json(results || []);
     }
 
     importMulti.zrangebyscore(

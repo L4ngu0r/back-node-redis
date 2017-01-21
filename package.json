@@ -4,11 +4,15 @@
   "version": "0.0.1",
   "description": "REST server for REDIS",
   "author": "L4ngu0r",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "redis": "^2.6.2",
-    "express" : "^4.14.0",
-    "body-parser" : "^1.15.2",
-    "bluebird":"^3.4.3"
+    "bluebird": "^3.4.3",
+    "body-parser": "^1.15.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "redis": "^2.6.2"
   },
   "license": "MIT"
 }
