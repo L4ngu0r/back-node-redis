@@ -78,33 +78,3 @@ importMulti.exec(function(err,results){
         client.quit();
     }
 });
-
-/*
-client.hmset('items-list', {
-    'item1':  'desc5555',
-});
-
-
-client.hgetall('items-list', (err, reply) => {
-    if(err){
-        throw err;
-    }
-
-    console.log(reply);
-});
-
-client.rpush(['frameworks', 'angularjs', 'backbone'], function(err, reply) {
-    console.log(reply);
-});
-
-client.lrange('frameworks', 0, -1, function(err, reply) {
-    console.log(reply);
-});
-
-client.lrem('frameworks', 0, 'backbone', (err, reply) => {
-    console.log(reply);
-});
-
-client.lrange('frameworks', 0, -1, function(err, reply) {
-    console.log(reply);
-});*/
